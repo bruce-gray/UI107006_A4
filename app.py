@@ -9,6 +9,11 @@ app = Flask(__name__)
 def home():
     return app.send_static_file('index.html')
 
+# Serve the play page from the static folder
+@app.route('/play')
+def play():
+    return app.send_static_file('play.html')
+
 # Path to the quiz data file relative to this file's location
 DATA_FILE = os.path.join(os.path.dirname(__file__), 'data', 'quizzes.json')
 
@@ -33,7 +38,6 @@ def get_quizzes():
         for quiz in quizzes
     ]
     return jsonify(summary)
-
 
 if __name__ == '__main__':
     app.run(debug=True)
