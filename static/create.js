@@ -39,7 +39,7 @@ function saveQuiz() {
     const title = document.getElementById('quiz-title').value.trim();
     const description = document.getElementById('quiz-description').value.trim();
 
-    // input validation for empty fields
+    // input validation for empty title/desc fields
     if (!title || !description) {
         document.getElementById('error-message').textContent = 'Title and Description must both be entered.';
         return;
@@ -57,6 +57,13 @@ function saveQuiz() {
             document.getElementById(`option-${i}-2`).value.trim(),
             document.getElementById(`option-${i}-3`).value.trim()
         ];
+
+        // input validation for question text and options, cannot be blank
+        // .some returns true if any option is empty
+        if (!text || options.some(opt => !opt)) {
+                document.getElementById('error-message').textContent = 'All answer options must be entered.';
+                return;
+            }
 
         const correctIndex = parseInt(document.getElementById(`correct-${i}`).value);
 
