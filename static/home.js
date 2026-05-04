@@ -25,9 +25,22 @@ function renderQuizList(quizzes) {
             <h2>${quiz.title}</h2>
             <p>${quiz.description}</p>
             <p>${quiz.question_count} questions</p>
-            <a href="/play?id=${quiz.id}">Play</a>
+            <button onclick="window.location.href='/play?id=${quiz.id}'">Play</button>
+            <button onclick="deleteQuiz('${quiz.id}')">Delete</button>
         </div>
     `).join('');
+}
+
+// handles deletion of quizzes when delete button clicked
+async function deleteQuiz(quizId) {
+    try {
+        const response = await fetch(`/api/quiz/${quizId}`, {
+            method: 'DELETE'
+        });
+        loadQuizzes();
+    } catch {
+        document.getElementById('error-message').textContent = 'Failed to delete quiz.';
+    }
 }
 
 loadQuizzes();

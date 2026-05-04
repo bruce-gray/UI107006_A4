@@ -129,41 +129,5 @@
                 "correct_index": 1
             }
         ]
-    },
-    {
-        "id": "661e5c7e-26bc-49ff-8e95-fdacc6ecd74d",
-        "title": "test2",
-        "description": "test2",
-        "questions": [
-            {
-                "id": "q0",
-                "text": "",
-                "options": [
-                    "",
-                    "",
-                    "",
-                    ""
-                ],
-                "correct_index": 0
-            }
-        ]
-    },
-    {
-        "id": "c1407d9d-8a29-4df9-97de-26ff021ada69",
-        "title": "t3",
-        "description": "t3",
-        "questions": [
-            {
-                "id": "q0",
-                "text": "tester",
-                "options": [
-                    "1",
-                    "2",
-                    "3",
-                    "4"
-                ],
-                "correct_index": 3
-            }
-        ]
     }
 ]
