@@ -47,6 +47,88 @@ function showQuestion() {
     optionsContainer.innerHTML = question.options.map((option, index) => `
         <button onclick="submitAnswer(${index})">${option}</button>
     `).join('');
+
+    // reset visibility of feedback and results sections for each new question
+    document.getElementById('feedback-area').style.display = 'none';
+    document.getElementById('results-section').style.display = 'none';
+}
+
+// handles submitting and checking of answers
+async function submitAnswer(selectedIndex) {
+    // if answered is true, stop
+    //  prevents the player from clicking multiple times to send the same answer before a response is received and potentially get extra points
+    if (answered) return;
+    answered = true;
+
+    // for each button on the page, disable them to prevent multiple clicks whilst waiting for a response
+    document.querySelectorAll('button').forEach(btn => btn.disabled = true);
+
+    const question = quiz.questions[currentQuestionIndex];
+
+    try {
+        // POST to send answer to backend via /api/check endpoint for checking
+        const response = await fetch('/api/check', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                quiz_id: quizId,
+                question_id: question.id,
+                selected_index: selectedIndex
+            })
+        });
+
+        const result = await response.json();
+        showFeedback(result);
+
+    } catch (error) {
+        document.getElementById('feedback-message').textContent = 'Error checking answer.';
+    }
+}
+
+// handles displaying feedback
+function showFeedback(result) {
+    document.getElementById('feedback-area').style.display = 'block';
+
+    // if correct == true, increment score and display 'Correct!'
+    if (result.correct) {
+        score++;
+        document.getElementById('feedback-message').textContent = 'Correct!';
+        document.getElementById('correct-answer-msg').textContent = '';
+    // if result == false, display 'Incorrect.' and the correct answer
+    } else {
+        document.getElementById('feedback-message').textContent = 'Incorrect.';
+        document.getElementById('correct-answer-msg').textContent = `The correct answer was ${result.correct_answer}`;
+    }
+
+    // checks if this question is the final one in the quiz
+    const isLastQuestion = currentQuestionIndex === quiz.questions.length - 1;
+    const nextBtn = document.getElementById('next-btn')
+
+    // if last question, render button to view results
+    if (isLastQuestion) {
+        nextBtn.textContent = 'See Results';
+        nextBtn.onclick = showResults;
+    // if not the last question, render button to advance to the next question
+    } else {
+        nextBtn.textContent = 'Next Question';
+        nextBtn.onclick = nextQuestion;
+    }
+}
+
+// just increments currentQuestionIndex and calls showQuestion() for the next question
+function nextQuestion() {
+    currentQuestionIndex++;
+    showQuestion();
+}
+
+// handles showing results when the quiz is finished
+// hides the questions section, shows the results section with summary text
+function showResults() {
+    document.getElementById('quiz-section').style.display = 'none';
+    document.getElementById('results-section').style.display = 'block';
+
+    const total = quiz.questions.length;
+    document.getElementById('score-display').textContent = `You scored ${score} out of ${total}`;
 }
 
 loadQuiz();

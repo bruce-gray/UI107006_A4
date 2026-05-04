@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import json
 import os
 
@@ -66,6 +66,47 @@ def get_quiz(quiz_id):
         'questions': safe_questions
     })
 
+# answer checking
+@app.route('/api/check', methods=['POST'])
+def check_answer():
+    # reads the POST request, if nothing was sent return 400 (bad request)
+    data = request.get_json()
+    if not data:
+        return jsonify({'error:' 'No data received.'}), 400
+    
+    # pulls fields from POST request and if any missing, return 400
+    quiz_id = data.get('quiz_id')
+    question_id = data.get('question_id')
+    selected_index = data.get('selected_index')
+
+    if quiz_id is None or question_id is None or selected_index is None:
+        return jsonify({'error': 'Missing required fields.'}), 400
+    
+    # find the quiz by quiz_id, return 404 if not exists
+    quizzes = load_quizzes()
+    quiz = next((q for q in quizzes if q['id'] == quiz_id), None)
+    if not quiz:
+        return jsonify({'error': 'Quiz not found.'}), 404
+    
+    # find the specific question from the quiz, if not exists then return 404
+    question = next((q for q in quiz['questions'] if q['id'] == question_id), None)
+    if not question:
+        return jsonify({'error': 'Question not found.'}), 404
+    
+    # this is input validation checking that sent index is actually an int and if it's within the expected range (0-3). if either are not true, return 400
+    if not isinstance(selected_index, int) or not (0 <= selected_index < len(question['options'])):
+        return jsonify({'error': 'Invalid answer selection.'}), 400
+    
+    # the actual answer check that runs if the POST request is valid
+    # compares submitted index against correct_index from quizzes.JSON
+    correct = selected_index == question['correct_index']
+    result = {'correct': correct}
+
+    # correct is always returned, but if correct is false then the actual correct answer is sent too
+    if not correct:
+        result['correct_answer'] = question['options'][question['correct_index']]
+
+    return jsonify(result)
 
 if __name__ == '__main__':
     app.run(debug=True)
