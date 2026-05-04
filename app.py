@@ -108,5 +108,10 @@ def check_answer():
 
     return jsonify(result)
 
+# serves the quiz creation page from the static folder
+@app.route('/create')
+def create():
+    return app.send_static_file('create.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
