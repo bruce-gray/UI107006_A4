@@ -39,5 +39,33 @@ def get_quizzes():
     ]
     return jsonify(summary)
 
+# returns a quiz for playing
+@app.route('/api/quiz/<quiz_id>')
+def get_quiz(quiz_id):
+    quizzes = load_quizzes()
+    # loops through every quiz, filters to quiz where the id matches then stops
+    quiz = next((q for q in quizzes if q['id'] == quiz_id), None)
+
+    if not quiz:
+        # return 404 if no quiz matches the id
+        return jsonify({'error': 'Quiz not found.'}), 404
+    
+    # correct_index is stripped from every question before sending it to the frontend to prevent exposure of answers
+    safe_questions = [
+        {
+            'id': question['id'],
+            'text': question['text'],
+            'options': question['options']
+        }
+        for question in quiz['questions']
+    ]
+
+    return jsonify({
+        'id': quiz['id'],
+        'title': quiz['title'],
+        'questions': safe_questions
+    })
+
+
 if __name__ == '__main__':
     app.run(debug=True)
