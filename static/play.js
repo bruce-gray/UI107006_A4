@@ -26,9 +26,22 @@ async function loadQuiz() {
         // when quiz loaded, render the title and call showQuestion to display question and answer options
         quiz = await response.json();
         document.getElementById('quiz-title').textContent = quiz.title;
+        shuffleQuestions(quiz)
         showQuestion();
     } catch (error) {
         document.body.innerHTML = '<p>Failed to load quiz. <a href="/">Go Back</a></p>';
+    }
+}
+
+// shuffles the questions for displaying in random order
+// uses Fisher-Yates shuffle algorithm
+function shuffleQuestions(quiz) {
+    const questions = quiz.questions;
+    for (let i = questions.length - 1; i > 0; i--) {
+        // generate a random index between 0 and i to swap with
+        const j = Math.floor(Math.random() * (i + 1));
+        // swap current element with the randomly selected element using destructuring assignment
+        [questions[i], questions[j]] = [questions[j], questions[i]];
     }
 }
 
