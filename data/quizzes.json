@@ -7,19 +7,34 @@
             {
                 "id": "q1",
                 "text": "What is the capital city of Germany?",
-                "options": ["London", "Berlin", "Brussels", "Cologne"],
+                "options": [
+                    "London",
+                    "Berlin",
+                    "Brussels",
+                    "Cologne"
+                ],
                 "correct_index": 1
             },
             {
                 "id": "q2",
                 "text": "In computing, what does API stand for?",
-                "options": ["Application Programming Interface", "Advanced Program Integration", "Application Process Input", "Angry Penguin Installer"],
+                "options": [
+                    "Application Programming Interface",
+                    "Advanced Program Integration",
+                    "Application Process Input",
+                    "Angry Penguin Installer"
+                ],
                 "correct_index": 0
             },
             {
                 "id": "q3",
                 "text": "Who originally wrote the song 'Fly Me To The Moon'?",
-                "options": ["Frank Sinatra", "Quincy Jones", "Dean Martin", "Bart Howard"],
+                "options": [
+                    "Frank Sinatra",
+                    "Quincy Jones",
+                    "Dean Martin",
+                    "Bart Howard"
+                ],
                 "correct_index": 3
             }
         ]
@@ -32,26 +47,86 @@
             {
                 "id": "q1",
                 "text": "In Fullmetal Alchemist, what is the first rule of alchemy?",
-                "options": ["Equivalent exchange", "Matter cannot be destroyed", "All things have a price", "Don't talk about alchemy"],
+                "options": [
+                    "Equivalent exchange",
+                    "Matter cannot be destroyed",
+                    "All things have a price",
+                    "Don't talk about alchemy"
+                ],
                 "correct_index": 0
             },
             {
                 "id": "q2",
                 "text": "In One Piece, what is the name of Luffy's crew?",
-                "options": ["The Grand Line Pirates", "The Whitebeard Pirates", "The Straw Hat Pirates", "The Marine Pirates"],
+                "options": [
+                    "The Grand Line Pirates",
+                    "The Whitebeard Pirates",
+                    "The Straw Hat Pirates",
+                    "The Marine Pirates"
+                ],
                 "correct_index": 2
             },
             {
                 "id": "q3",
                 "text": "What was the event that reshaped the world 15 years before the original Neon Genesis Evangelion series takes place?",
-                "options": ["The Angel War", "The Second Impact", "The First Impact", "The Instrumentality Project"],
+                "options": [
+                    "The Angel War",
+                    "The Second Impact",
+                    "The First Impact",
+                    "The Instrumentality Project"
+                ],
                 "correct_index": 1
             },
             {
                 "id": "q4",
                 "text": "In Trigun, what is the value of the bounty on Vash's head?",
-                "options": ["60 billion double dollars", "1 trillion triple dollars", "150 million billion bucks", "17.99 with tax"],
+                "options": [
+                    "60 billion double dollars",
+                    "1 trillion triple dollars",
+                    "150 million billion bucks",
+                    "17.99 with tax"
+                ],
                 "correct_index": 0
+            }
+        ]
+    },
+    {
+        "id": "6c5a98b7-d019-4bc2-a483-d56fa67b4b01",
+        "title": "test quiz",
+        "description": "test of the quiz creation",
+        "questions": [
+            {
+                "id": "q0",
+                "text": "question 1 (correct is 4)",
+                "options": [
+                    "wrong",
+                    "wrong",
+                    "wrong",
+                    "right"
+                ],
+                "correct_index": 3
+            },
+            {
+                "id": "q1",
+                "text": "question 2 (correct is 1)",
+                "options": [
+                    "right",
+                    "wrongw",
+                    "wrong",
+                    "wrong"
+                ],
+                "correct_index": 0
+            },
+            {
+                "id": "q2",
+                "text": "question 3 (correct is 2)",
+                "options": [
+                    "wrong",
+                    "right",
+                    "wrong",
+                    "wrong"
+                ],
+                "correct_index": 1
             }
         ]
     }
