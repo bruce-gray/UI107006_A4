@@ -61,7 +61,7 @@ async function submitAnswer(selectedIndex) {
     answered = true;
 
     // for each button on the page, disable them to prevent multiple clicks whilst waiting for a response
-    document.querySelectorAll('button').forEach(btn => btn.disabled = true);
+    document.querySelectorAll('#options-container button').forEach(btn => btn.disabled = true);
 
     const question = quiz.questions[currentQuestionIndex];
 
