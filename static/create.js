@@ -13,6 +13,7 @@ function addQuestion() {
     // creates a new div inside of questions-container to hold the question inputs
     const block = document.createElement('div');
     block.id = `question-${index}`;
+    block.className = 'question-block';
 
     // renders input fields for text and a dropdown to select the correct answer
     // each option id uses both the question index and the option index to ensure all option entires are unique across the entire form

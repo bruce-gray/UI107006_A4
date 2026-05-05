@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background: #f2f2f2;
+    color: #1e1e1e;
+    padding: 2rem;
+}
+
+main {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: #4d6fa3;
+    text-decoration: none;
+}
+
+button, .btn {
+    background: #4d6fa3;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover, .btn:hover {
+    background: #3c5c8e;
+}
+
+input, select {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.quiz-card {
+    background: #fefefe;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.quiz-card h2 {
+    margin-bottom: 0.25rem;
+}
+
+.quiz-card p {
+    margin-bottom: 0.5rem;
+    color: #505050;
+}
+
+.question-block {
+    background: #fefefe;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+#error-message {
+    color: #c0392b;
+    margin-top: 0.5rem;
+}
+
+#feedback-area {
+    background: #fefefe;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-top: 1rem;
+    border-left: 4px solid;
+    border-bottom: 4px solid;
+}
+
+#options-container button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    background: #fefefe;
+    color: #1e1e1e;
+    border: 2px solid #e0e0e0;
+}
+
+#options-container button:hover {
+    border-color: #4d6fa3;
+    background: #fefefe;
+}
+
+#question-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+#question-progress {
+    margin-bottom: 0.75rem;
+    color: #505050;
+}
+
+#feedback-area p {
+    margin-bottom: 0.75rem;
+}
+
+#options-container button.correct {
+    background: #2e8b50;
+    color: white;
+    border-color: #2e8b50;
+}
+
+#options-container button.incorrect {
+    background: #bf3a2c;
+    color: white;
+    border-color: #bf3a2c;
+}
+
+#feedback-area.correct {
+    border-left-color: #2e8b50;
+    border-bottom-color: #2e8b50;
+}
+
+#feedback-area.incorrect {
+    border-left-color: #bf3a2c;
+    border-bottom-color: #bf3a2c;
+}
+
+.question-block p {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}

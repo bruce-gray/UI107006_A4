@@ -91,7 +91,7 @@ async function submitAnswer(selectedIndex) {
         });
 
         const result = await response.json();
-        showFeedback(result);
+        showFeedback(result, selectedIndex);
 
     } catch (error) {
         document.getElementById('feedback-message').textContent = 'Error checking answer.';
@@ -99,7 +99,7 @@ async function submitAnswer(selectedIndex) {
 }
 
 // handles displaying feedback
-function showFeedback(result) {
+function showFeedback(result, selectedIndex) {
     document.getElementById('feedback-area').style.display = 'block';
 
     // if correct == true, increment score and display 'Correct!'
@@ -112,6 +112,11 @@ function showFeedback(result) {
         document.getElementById('feedback-message').textContent = 'Incorrect.';
         document.getElementById('correct-answer-msg').textContent = `The correct answer was ${result.correct_answer}`;
     }
+
+    // apply correct/incorrect class to the selected button and feedback area for visual feedback
+    const buttons = document.querySelectorAll('#options-container button');
+    buttons[selectedIndex].classList.add(result.correct ? 'correct' : 'incorrect');
+    document.getElementById('feedback-area').className = result.correct ? 'correct' : 'incorrect';
 
     // checks if this question is the final one in the quiz
     const isLastQuestion = currentQuestionIndex === quiz.questions.length - 1;
