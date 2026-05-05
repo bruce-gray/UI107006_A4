@@ -91,42 +91,97 @@
         ]
     },
     {
-        "id": "6c5a98b7-d019-4bc2-a483-d56fa67b4b01",
-        "title": "test quiz",
-        "description": "test of the quiz creation",
+        "id": "47d94f76-6b4d-4031-bb4d-40da0006745f",
+        "title": "Geography",
+        "description": "A sample quiz containing eight geography related questions.",
         "questions": [
             {
                 "id": "q0",
-                "text": "question 1 (correct is 4)",
+                "text": "What is the capital of Australia?",
                 "options": [
-                    "wrong",
-                    "wrong",
-                    "wrong",
-                    "right"
-                ],
-                "correct_index": 3
-            },
-            {
-                "id": "q1",
-                "text": "question 2 (correct is 1)",
-                "options": [
-                    "right",
-                    "wrongw",
-                    "wrong",
-                    "wrong"
+                    "Canberra",
+                    "Sydney",
+                    "Melbourne",
+                    "Brisbane"
                 ],
                 "correct_index": 0
             },
             {
-                "id": "q2",
-                "text": "question 3 (correct is 2)",
+                "id": "q1",
+                "text": "Which is the longest river in the world?",
                 "options": [
-                    "wrong",
-                    "right",
-                    "wrong",
-                    "wrong"
+                    "The Amazon",
+                    "The Nile",
+                    "The Yangtze",
+                    "The Mississippi"
                 ],
                 "correct_index": 1
+            },
+            {
+                "id": "q2",
+                "text": "How many countries are in Africa?",
+                "options": [
+                    "48",
+                    "61",
+                    "54",
+                    "72"
+                ],
+                "correct_index": 2
+            },
+            {
+                "id": "q3",
+                "text": "Which mountain is the tallest in the world?",
+                "options": [
+                    "K2",
+                    "Mont Blanc",
+                    "Kangchenjunga",
+                    "Mount Everest"
+                ],
+                "correct_index": 3
+            },
+            {
+                "id": "q4",
+                "text": "Which country has the most natural lakes?",
+                "options": [
+                    "Russia",
+                    "Finland",
+                    "USA",
+                    "Canada"
+                ],
+                "correct_index": 3
+            },
+            {
+                "id": "q5",
+                "text": "Which country has the most islands in the world?",
+                "options": [
+                    "Norway",
+                    "Sweden",
+                    "Indonesia",
+                    "Japan"
+                ],
+                "correct_index": 1
+            },
+            {
+                "id": "q6",
+                "text": "What is the most populous city in the world?",
+                "options": [
+                    "Shanghai, China",
+                    "Delhi, India",
+                    "Tokyo, Japan",
+                    "S\u00e3o Paulo, Brazil"
+                ],
+                "correct_index": 2
+            },
+            {
+                "id": "q7",
+                "text": "Which European country has the most UNESCO World Heritage Sites?",
+                "options": [
+                    "France",
+                    "Spain",
+                    "Germany",
+                    "Italy"
+                ],
+                "correct_index": 3
             }
         ]
     }
